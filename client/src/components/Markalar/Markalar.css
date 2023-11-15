@@ -1,0 +1,24 @@
+.markalar {
+    margin: 40px 0;
+  }
+
+  .marka-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 1px solid #dee0ea;
+    padding: 30px 5px;
+  }
+
+  .marka-list .marka-item {
+    opacity: 0.4;
+    transition: 0.2s ease opacity;
+    width: 15%;
+  }
+  .marka-list .marka-item >a>img{
+    width: 100%;
+  }
+
+  .marka-list .marka-item:hover {
+    opacity: 1;
+  }
