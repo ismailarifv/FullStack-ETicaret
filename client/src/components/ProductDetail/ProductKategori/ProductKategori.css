@@ -1,0 +1,18 @@
+.single-product .product-kategori ul {
+    display: flex;
+  }
+
+  .single-product .product-kategori ul li {
+    font-size: 12px;
+  }
+
+  .single-product .product-kategori ul li:not(:last-child):after {
+    content: "/";
+    color: #dee0ea;
+    margin: 0 5px;
+  }
+
+  .single-product .product-kategori ul li a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
