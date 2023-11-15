@@ -54,7 +54,7 @@ header {
     content: "";
     width: 0;
     height: 1px;
-    background-color: #1367ef;
+    background-color: #efe013;
     position: absolute;
     bottom: -2px;
     left: 50%;
@@ -101,7 +101,7 @@ header {
   .header-right .header-cart-link .header-cart-count {
     width: 16px;
     height: 16px;
-    background-color: #1367ef;
+    background-color: #efe013;
     color: white;
     font-size: 10px;
     border-radius: 100%;
@@ -142,7 +142,7 @@ header {
   }
 
   header .menu-dropdown-content a:hover {
-    color: #1367ef;
+    color: #efe013;
   }
 
   .header-center .menu-list .menu-list-item:hover .menu-dropdown-wrapper {

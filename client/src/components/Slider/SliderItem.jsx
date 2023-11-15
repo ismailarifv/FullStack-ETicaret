@@ -8,7 +8,7 @@ function SliderItem() {
       <div className="container">
         <p className="slider-title">Lorem, ipsum.</p>
         <h2 className="slider-heading">Lorem, ipsum dolor.</h2>
-        <a href="#" className="btn btn-lg btn-primary">
+        <a href="#" className="btn btn-lg ">
           Lorem, ipsum.
         </a>
       </div>
