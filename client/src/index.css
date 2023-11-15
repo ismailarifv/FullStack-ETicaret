@@ -72,15 +72,15 @@ button:disabled {
   line-height: 45px;
 }
 
-.btn-primary {
-  background-color: #1367ef;
+.btn-warning {
+  background-color: #efe013;
   color: #fff;
-  border-color: #1367ef;
+  border-color: #efe013;
 }
 
-.btn-primary:hover {
+.btn-warning:hover {
   background-color: #fff;
-  color: #1367ef;
+  color: #efe013;
 }
 
 textarea {
