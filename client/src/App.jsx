@@ -1,7 +1,8 @@
 
-import Header from "./components/Header";
+import Header from "./components/Layout/Header/Header";
 import './App.css'
-import Footer from "./components/Footer";
+import Footer from "./components/Layout/Footer/Footer";
+import Sliders from "./components/Slider/Sliders";
 
 function App() {
  
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <Header/>
+      <Sliders/>
       <Footer/>
     </>
   )

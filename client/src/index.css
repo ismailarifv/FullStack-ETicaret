@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Jost", sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -20,7 +20,7 @@ ol {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #6d6d6d;
 }
 
 h1,
