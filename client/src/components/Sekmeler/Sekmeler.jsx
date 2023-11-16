@@ -1,22 +1,42 @@
+import { useState } from "react";
 import Yorumlar from "../Yorumlar/Yorumlar"
 import './Sekmeler.css'
 
 function Sekmeler() {
+  const [activeSekme, setActiveSekme] = useState("desc");
+
+  const handleSekmeClick = (e, sekme) => {
+    e.preventDefault();
+    setActiveSekme(sekme);
+  };
+
   return (
     <div className="single-tabs">
       <ul className="tab-list">
         <li>
-          <a href="#" className="tab-button active" data-id="desc">
+        <a
+            href="#"
+            className={`tab-button ${activeSekme === "desc" ? "active" : ""}`}
+            onClick={(e) => handleSekmeClick(e, "desc")}
+          >
             Açıklama
           </a>
         </li>
         <li>
-          <a href="#" className="tab-button" data-id="info">
+        <a
+            href="#"
+            className={`tab-button ${activeSekme === "info" ? "active" : ""}`}
+            onClick={(e) => handleSekmeClick(e, "info")}
+          >
             Ek Bilgiler
           </a>
         </li>
         <li>
-          <a href="#" className="tab-button" data-id="reviews">
+        <a
+            href="#"
+            className={`tab-button ${activeSekme === "reviews" ? "active" : ""}`}
+            onClick={(e) => handleSekmeClick(e, "reviews")}
+          >
             Yorumlar
           </a>
         </li>
@@ -39,7 +59,12 @@ function Sekmeler() {
              perferendis error?
           </p>
         </div>
-        <div className="tab-panel-information content" id="info">
+        <div
+          className={`tab-panel-information content ${
+            activeSekme === "info" ? "active" : ""
+          }`}
+          id="info"
+        >
           <h3>Ek Bilgiler</h3>
           <table>
             <tbody>
@@ -61,7 +86,9 @@ function Sekmeler() {
             </tbody>
           </table>
         </div>
-        <Yorumlar />
+        <Yorumlar
+          active={activeSekme === "reviews" ? "content active" : "content"}
+        />
       </div>
     </div>
   )
