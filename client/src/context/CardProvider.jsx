@@ -1,4 +1,4 @@
-import { createContext,useState } from "react";
+import { createContext,useState,useEffect } from "react";
 import PropTypes from 'prop-types'
 export const CardContext=createContext();
 
@@ -6,12 +6,19 @@ export const CardContext=createContext();
 
 function CardProvider({children}) {
 
-    const [cardItems, setCardItems] = useState([]);
+    const [cardItems, setCardItems] = useState(localStorage.getItem("cardItems")
+    ? JSON.parse(localStorage.getItem("cardItems"))
+    : []);
+
+    useEffect(() => {
+        localStorage.setItem("cardItems", JSON.stringify(cardItems));
+      }, [cardItems]);
 
     const addToCard = (cardItem) => {
         // setCartItems([...cartItems, cartItem]); 1. yol
         setCardItems((cards) => [...cards, cardItem]);
       };
+      
 
   return (
     <CardContext.Provider
