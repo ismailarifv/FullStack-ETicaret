@@ -1,14 +1,21 @@
+import PropTypes from "prop-types";
+import { useContext } from "react";
+import { CardContext } from "../../context/CardProvider";
 
 
-function SepetItem() {
+function SepetItem({cardItem}) {
+  const {removeProduct} =useContext(CardContext)
   return (
     <tr className="sepet-item">
       <td></td>
       <td className="sepet-image">
-        <img src="img/products/product1/1.png" alt="" />
-        <i className="bi bi-x delete-sepet" data-id="1"></i>
+      <img src={cardItem.img.singleImage} alt="" />
+        <i
+          className="bi bi-x delete-cart"
+          onClick={() => removeProduct(cardItem.id)}
+        ></i>
       </td>
-      <td>Takım Elbise</td>
+      <td>{cardItem.name}</td>
       <td>100₺</td>
       <td className="product-quantity">1</td>
       <td className="product-subtotal">100₺</td>
@@ -17,3 +24,7 @@ function SepetItem() {
 }
 
 export default SepetItem
+
+SepetItem.propTypes = {
+  cardItem: PropTypes.object,
+};

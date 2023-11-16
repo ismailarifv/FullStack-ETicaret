@@ -18,13 +18,22 @@ function CardProvider({children}) {
         // setCartItems([...cartItems, cartItem]); 1. yol
         setCardItems((cards) => [...cards, cardItem]);
       };
+
+    const removeProduct = (itemId) => {
+        const filteredSepetItems = cardItems.filter((sepetItem) => {
+          return sepetItem.id !== itemId;
+        });
+    
+        setCardItems(filteredSepetItems);
+      };
       
 
   return (
     <CardContext.Provider
     value={{
         cardItems,
-        addToCard
+        addToCard,
+        removeProduct
     }}
     >
         {children}

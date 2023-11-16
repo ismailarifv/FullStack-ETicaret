@@ -5,7 +5,11 @@ import { useContext } from "react";
 
 function ProductItem({ productItem }) {
   
-  const { addToCard } = useContext(CardContext);
+  const { cardItems, addToCard } = useContext(CardContext);
+
+  const filteredProduct = cardItems.find(
+    (cardItem) => cardItem.id === productItem.id
+  );
   return (
     <div className="product-item glide__slide glide__slide--active">
     <div className="product-image">
@@ -48,6 +52,7 @@ function ProductItem({ productItem }) {
       <button
             className="add-to-cart"
             onClick={() => addToCard(productItem)}
+            disabled={filteredProduct}
           >
           <i className="bi bi-basket-fill"></i>
         </button>

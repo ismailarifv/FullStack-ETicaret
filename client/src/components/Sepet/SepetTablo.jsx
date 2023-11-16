@@ -1,7 +1,10 @@
 import SepetItem from "./SepetItem"
+import { useContext } from "react";
+import { CardContext } from "../../context/CardProvider";
 
 
 function SepetTablo() {
+  const { cardItems } = useContext(CardContext);
   return (
     <table className="shop-table">
     <thead>
@@ -16,8 +19,9 @@ function SepetTablo() {
     </thead>
     <tbody className="sepet-wrapper">
       
-      <SepetItem />
-      <SepetItem />
+    {cardItems.map((item) => (
+          <SepetItem cardItem={item} key={item.id} />
+        ))}
     </tbody>
   </table>
   )
