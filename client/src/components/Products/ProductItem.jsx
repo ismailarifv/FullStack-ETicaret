@@ -1,17 +1,22 @@
+import PropTypes from "prop-types";
 import "./ProductItem.css";
 
-function ProductItem() {
+function ProductItem({ productItem, setCardItems }) {
+  const addToCart = (cardItem) => {
+
+    setCardItems((prevCard) => [...prevCard, cardItem]);
+  };
   return (
     <div className="product-item glide__slide glide__slide--active">
     <div className="product-image">
       <a href="#">
-        <img src="img/products/product1/1.png" alt="" className="img1" />
-        <img src="img/products/product1/2.png" alt="" className="img2" />
+      <img src={productItem.img.singleImage} alt="" className="img1" />
+          <img src={productItem.img.thumbs[1]} alt="" className="img2" />
       </a>
     </div>
     <div className="product-info">
       <a href="$" className="product-title">
-        Takım Elbise
+      {productItem.name}
       </a>
       <ul className="product-star">
         <li>
@@ -31,12 +36,19 @@ function ProductItem() {
         </li>
       </ul>
       <div className="product-prices">
-        <strong className="new-price">100₺</strong>
-        <span className="old-price">150₺</span>
+      <strong className="new-price">
+            ${productItem.price.newPrice}
+          </strong>
+          <span className="old-price">
+            ${productItem.price.oldPrice}
+          </span>
       </div>
-      <span className="product-discount">-33%</span>
+      <span className="product-discount">-{productItem.discount}%</span>
       <div className="product-links">
-        <button className="add-to-cart">
+      <button
+            className="add-to-cart"
+            onClick={() => addToCart(productItem)}
+          >
           <i className="bi bi-basket-fill"></i>
         </button>
         <button>
@@ -55,3 +67,8 @@ function ProductItem() {
 }
 
 export default ProductItem
+
+ProductItem.propTypes = {
+  productItem: PropTypes.object,
+  setCardItems: PropTypes.func,
+};

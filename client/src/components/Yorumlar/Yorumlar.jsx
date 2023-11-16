@@ -12,7 +12,6 @@ function Yorumlar({ active }) {
           <Yorum />
           <Yorum />
           <Yorum />
-          
         </ol>
       </div>
       <div className="review-form-wrapper">

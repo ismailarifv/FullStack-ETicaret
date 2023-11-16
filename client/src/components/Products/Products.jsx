@@ -32,7 +32,7 @@ PrevBtn.propTypes = {
 
 function Products() {
   const [products] = useState(productsData);
-
+  const [cardItems, setCardItems] = useState([]);
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -59,6 +59,7 @@ function Products() {
   };
   return (
     <section className="products">
+      {cardItems.length}
     <div className="container">
       <div className="section-title">
         <h2>Ürünler</h2>
@@ -67,7 +68,7 @@ function Products() {
       <div className="product-wrapper product-carousel">
       <Slider {...sliderSettings}>
             {products.map((product) => (
-              <ProductItem product={product} key={product.id} />
+              <ProductItem productItem={product} setCartItems={setCardItems} key={product.id} />
             ))}
           </Slider>
       </div>
