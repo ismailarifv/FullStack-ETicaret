@@ -1,7 +1,10 @@
-
+import { CardContext } from "../../../context/CardProvider";
+import { useContext } from "react";
 import "./Header.css";
 import Proptypes from "prop-types";
 function Header({ setIsSearchShow }) {
+
+  const { cardItems } = useContext(CardContext);
   return (
     <header>
       <div className="header-row">
@@ -12,7 +15,7 @@ function Header({ setIsSearchShow }) {
             </div>
             <div className="header-left">
               <a href="index.html" className="logo">
-                LOGO
+                HEPSİORADA
               </a>
             </div>
             <div className="header-center" id="sidebar">
@@ -176,7 +179,9 @@ function Header({ setIsSearchShow }) {
                 <div className="header-cart">
                   <a href="cart.html" className="header-cart-link">
                     <i className="bi bi-bag"></i>
-                    <span className="header-cart-count">0</span>
+                    <span className="header-cart-count">
+                      {cardItems.length}
+                    </span>
                   </a>
                 </div>
               </div>

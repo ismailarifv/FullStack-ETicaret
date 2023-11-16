@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import "./ProductItem.css";
+import { CardContext } from "../../context/CardProvider";
+import { useContext } from "react";
 
-function ProductItem({ productItem, setCardItems }) {
-  const addToCart = (cardItem) => {
-
-    setCardItems((prevCard) => [...prevCard, cardItem]);
-  };
+function ProductItem({ productItem }) {
+  
+  const { addToCard } = useContext(CardContext);
   return (
     <div className="product-item glide__slide glide__slide--active">
     <div className="product-image">
@@ -47,7 +47,7 @@ function ProductItem({ productItem, setCardItems }) {
       <div className="product-links">
       <button
             className="add-to-cart"
-            onClick={() => addToCart(productItem)}
+            onClick={() => addToCard(productItem)}
           >
           <i className="bi bi-basket-fill"></i>
         </button>
