@@ -16,9 +16,9 @@ function SepetItem({cardItem}) {
         ></i>
       </td>
       <td>{cardItem.name}</td>
-      <td>100₺</td>
-      <td className="product-quantity">1</td>
-      <td className="product-subtotal">100₺</td>
+      <td>{cardItem.price.newPrice}₺</td>
+      <td className="product-quantity">{cardItem.quantity}</td>
+      <td className="product-subtotal">{(cardItem.price.newPrice * cardItem.quantity)}₺</td>
     </tr>
   )
 }

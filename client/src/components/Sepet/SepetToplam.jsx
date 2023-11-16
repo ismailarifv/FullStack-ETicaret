@@ -1,6 +1,31 @@
 
+import { useContext, useState } from "react";
+import { CardContext } from "../../context/CardProvider";
+
 
 function SepetToplam() {
+
+
+  const [hizliKargoChecked, setHizliKargoChecked] = useState(false);
+  const { cardItems } = useContext(CardContext);
+
+  const cardItemTotals = cardItems.map((item) => {
+    const itemTotal = item.price.newPrice * item.quantity;
+
+    return itemTotal;
+  });
+
+  const toplamKargosuz = cardItemTotals.reduce((oncekiDeger, sonrakiDeger) => {
+    return oncekiDeger + sonrakiDeger;
+  }, 0);
+
+  const kargoUcreti = 50;
+
+  const sepetToplam = hizliKargoChecked
+    ? (toplamKargosuz + kargoUcreti)
+    : toplamKargosuz;
+
+
   return (
     <div className="sepet-totals">
       <h2>Sepet</h2>
@@ -9,7 +34,7 @@ function SepetToplam() {
           <tr className="sepet-subtotal">
             <th>Toplam</th>
             <td>
-              <span id="subtotal">200₺</span>
+              <span id="subtotal">{toplamKargosuz}₺</span>
             </td>
           </tr>
           <tr>
@@ -19,7 +44,8 @@ function SepetToplam() {
                 <li>
                   <label>
                     Hızlı Kargo: 50₺
-                    <input type="checkbox" id="fast-cargo" />
+                    <input type="checkbox" id="fast-cargo" checked={hizliKargoChecked}
+                      onChange={() => setHizliKargoChecked(!hizliKargoChecked)}/>
                   </label>
                 </li>
                 <li>
@@ -31,7 +57,7 @@ function SepetToplam() {
           <tr>
             <th>Toplam</th>
             <td>
-              <strong id="sepet-total">200₺</strong>
+              <strong id="sepet-total">{sepetToplam}₺</strong>
             </td>
           </tr>
         </tbody>

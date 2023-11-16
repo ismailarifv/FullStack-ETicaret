@@ -15,8 +15,9 @@ function CardProvider({children}) {
       }, [cardItems]);
 
     const addToCard = (cardItem) => {
-        // setCartItems([...cartItems, cartItem]); 1. yol
-        setCardItems((cards) => [...cards, cardItem]);
+      setCardItems((products) => [
+        ...products,{...cardItem, quantity: cardItem.quantity ? cardItem.quantity : 1,},
+      ]);
       };
 
     const removeProduct = (itemId) => {
