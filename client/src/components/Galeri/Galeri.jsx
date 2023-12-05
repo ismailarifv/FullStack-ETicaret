@@ -79,7 +79,7 @@ function Galeri() {
                   }
                 >
                   <img
-                    src={itemImg}
+                    src={`/${itemImg}`}
                     alt=""
                     className={`img-fluid ${
                       activeImg.imgIndex === index

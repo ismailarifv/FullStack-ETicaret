@@ -2,7 +2,7 @@ import Categori from "../components/Categori/Categori"
 import Products from "../components/Products/Products"
 
 
-function AlısverisPage() {
+function AlisverisPage() {
   return (
     <>
     <Categori/>
@@ -11,4 +11,4 @@ function AlısverisPage() {
   )
 }
 
-export default AlısverisPage
+export default AlisverisPage

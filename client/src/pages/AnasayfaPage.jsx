@@ -10,8 +10,8 @@ function AnasayfaPage() {
     <>
       <Sliders/>
       <Categori/>
-      <Kampanyalar/>
       <Products/>
+      <Kampanyalar/>
       <Markalar/>
     </>
   )

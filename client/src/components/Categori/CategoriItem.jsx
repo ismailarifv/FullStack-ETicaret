@@ -5,7 +5,7 @@ function CategoriItem() {
     <li className="category-item">
       <a href="#">
         <img
-          src="img/categories/categories1.png"
+          src="/img/categories/categories1.png"
           alt=""
           className="category-image"
         />

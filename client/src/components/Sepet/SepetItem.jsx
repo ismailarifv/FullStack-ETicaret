@@ -9,7 +9,7 @@ function SepetItem({cardItem}) {
     <tr className="sepet-item">
       <td></td>
       <td className="sepet-image">
-      <img src={cardItem.img.singleImage} alt="" />
+      <img src={`/${cardItem.img.singleImage}`} alt="" />
         <i
           className="bi bi-x delete-cart"
           onClick={() => removeProduct(cardItem.id)}

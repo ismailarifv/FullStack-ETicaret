@@ -3,7 +3,7 @@ function SliderItem({ imageSrc }) {
   return (
     <div className="slider-item fade">
       <div className="slider-image">
-      <img src={imageSrc} className="img-fluid" alt="" />
+      <img src={`${imageSrc}`} className="img-fluid" alt="" />
       </div>
       <div className="container">
         <p className="slider-title">Lorem, ipsum.</p>
