@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Yorumlar from "../Yorumlar/Yorumlar"
+import PropTypes from "prop-types";
 import './Sekmeler.css'
 
-function Sekmeler() {
+function Sekmeler({ singleProduct, setSingleProduct }) {
   const [activeSekme, setActiveSekme] = useState("desc");
 
   const handleSekmeClick = (e, sekme) => {
@@ -42,22 +43,13 @@ function Sekmeler() {
         </li>
       </ul>
       <div className="tab-panel">
-        <div className="tab-panel-descriptions content active" id="desc">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores blanditiis ipsam voluptate 
-            libero a reprehenderit velit facere voluptatibus id? Expedita saepe voluptatem facilis eaque 
-            incidunt corrupti culpa ipsam, debitis alias itaque. Iusto consequatur placeat ipsum accusantium
-             a suscipit rem ducimus exercitationem voluptates recusandae aperiam, omnis saepe animi quaerat 
-             perferendis error?
-          </p>
-          <br />
-          <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores blanditiis ipsam voluptate 
-            libero a reprehenderit velit facere voluptatibus id? Expedita saepe voluptatem facilis eaque 
-            incidunt corrupti culpa ipsam, debitis alias itaque. Iusto consequatur placeat ipsum accusantium
-             a suscipit rem ducimus exercitationem voluptates recusandae aperiam, omnis saepe animi quaerat 
-             perferendis error?
-          </p>
+        <div className={`tab-panel-descriptions content ${
+            activeSekme === "desc" ? "active" : ""
+          }`}>
+          <div
+            className="product-description"
+            dangerouslySetInnerHTML={{ __html: singleProduct.description }}
+          ></div>
         </div>
         <div
           className={`tab-panel-information content ${
@@ -80,7 +72,14 @@ function Sekmeler() {
               <tr>
                 <th>Beden</th>
                 <td>
-                  <p>XXS, XS, S, M, L, XL, XXL</p>
+                <p>
+                    {singleProduct.sizes.map((item, index) => (
+                      <span key={index}>
+                        {item.toUpperCase()}
+                        {index < singleProduct.sizes.length - 1 && ", "}
+                      </span>
+                    ))}
+                  </p>
                 </td>
               </tr>
             </tbody>
@@ -88,6 +87,8 @@ function Sekmeler() {
         </div>
         <Yorumlar
           active={activeSekme === "reviews" ? "content active" : "content"}
+          singleProduct={singleProduct}
+          setSingleProduct={setSingleProduct}
         />
       </div>
     </div>
@@ -95,3 +96,8 @@ function Sekmeler() {
 }
 
 export default Sekmeler
+
+Sekmeler.propTypes = {
+  singleProduct: PropTypes.object,
+  setSingleProduct: PropTypes.func,
+};

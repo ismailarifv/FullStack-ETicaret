@@ -1,5 +1,5 @@
-import { useState } from "react";
-import productsData from "../../data.json";
+import { useState,useEffect } from "react";
+//import productsData from "../../data.json";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
 import './Galeri.css'
@@ -42,12 +42,14 @@ PrevBtn.propTypes = {
   onClick: PropTypes.func,
 };
 
-function Galeri() {
+function Galeri({ singleProduct }) {
   const [activeImg, setActiveImg] = useState({
-    img: productsData[0].img.singleImage,
+    img: "",
     imgIndex: 0,
   });
-
+  useEffect(() => {
+    setActiveImg({ img: singleProduct.img[0], imgIndex: 0 });
+  }, [singleProduct.img]);
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -59,7 +61,7 @@ function Galeri() {
   return (
     <div className="product-gallery">
       <div className="single-image-wrapper">
-      <img src={activeImg.img} id="single-image" alt="" />
+      <img src={`${activeImg.img}`} id="single-image" alt="" />
       </div>
       <div className="product-thumb">
         <div className="glide__track" data-glide-el="track">
@@ -67,24 +69,22 @@ function Galeri() {
             className="gallery-thumbs glide__slides"
           >
              <Slider {...sliderSettings}>
-              {productsData[0].img.thumbs.map((itemImg, index) => (
+              {singleProduct.img.map((itemImg, index) => (
                 <li
                   className="glide__slide glide__slide--active"
                   key={index}
                   onClick={() =>
                     setActiveImg({
-                      img: productsData[0].img.thumbs[index],
+                      img: itemImg,
                       imgIndex: index,
                     })
                   }
                 >
                   <img
-                    src={`/${itemImg}`}
+                    src={`${itemImg}`}
                     alt=""
                     className={`img-fluid ${
-                      activeImg.imgIndex === index
-                        ? "active"
-                        : ""
+                      activeImg.imgIndex === index ? "active" : ""
                     } `}
                   />
                 </li>
@@ -99,3 +99,7 @@ function Galeri() {
 }
 
 export default Galeri
+
+Galeri.propTypes = {
+  singleProduct: PropTypes.object,
+};

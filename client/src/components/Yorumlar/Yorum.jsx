@@ -1,6 +1,14 @@
+import PropTypes from "prop-types";
 
+function Yorum({ reviewItem }) {
 
-function Yorum() {
+  const { text, createdAt } = reviewItem;
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = new Date(createdAt).toLocaleDateString(
+    "tr-TR",
+    options
+  );
+
   return (
     <li className="comment-item">
       <div className="comment-avatar">
@@ -25,14 +33,12 @@ function Yorum() {
           </li>
         </ul>
         <div className="comment-meta">
-          <strong>admin</strong>
-          <span>-</span>
-          <time>15 Kasım 2023</time>
+        <strong> admin</strong>
+          <span> - </span>
+          <time>{formattedDate}</time>
         </div>
         <div className="comment-description">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, deleniti.
-          </p>
+        <p>{text}</p>
         </div>
       </div>
     </li>
@@ -40,3 +46,7 @@ function Yorum() {
 }
 
 export default Yorum
+
+Yorum.propTypes = {
+  reviewItem: PropTypes.object,
+};

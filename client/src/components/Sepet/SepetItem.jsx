@@ -9,16 +9,16 @@ function SepetItem({cardItem}) {
     <tr className="sepet-item">
       <td></td>
       <td className="sepet-image">
-      <img src={`/${cardItem.img.singleImage}`} alt="" />
+      <img src={cardItem.img[0]} alt="" />
         <i
           className="bi bi-x delete-cart"
-          onClick={() => removeProduct(cardItem.id)}
+          onClick={() => removeProduct(cardItem._id)}
         ></i>
       </td>
       <td>{cardItem.name}</td>
-      <td>{cardItem.price.newPrice}₺</td>
+      <td>{cardItem.price}₺</td>
       <td className="product-quantity">{cardItem.quantity}</td>
-      <td className="product-subtotal">{(cardItem.price.newPrice * cardItem.quantity)}₺</td>
+      <td className="product-subtotal">{(cardItem.price * cardItem.quantity)}₺</td>
     </tr>
   )
 }

@@ -20,7 +20,7 @@ function SepetTablo() {
     <tbody className="sepet-wrapper">
       
     {cardItems.map((item) => (
-          <SepetItem cardItem={item} key={item.id} />
+          <SepetItem cardItem={item} key={item._id} />
         ))}
     </tbody>
   </table>

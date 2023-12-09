@@ -5,7 +5,7 @@ export const CardContext=createContext();
 
 
 function CardProvider({children}) {
-
+const [categoriControl,setCategoriControl]=useState(null)
     const [cardItems, setCardItems] = useState(localStorage.getItem("cardItems")
     ? JSON.parse(localStorage.getItem("cardItems"))
     : []);
@@ -22,7 +22,7 @@ function CardProvider({children}) {
 
     const removeProduct = (itemId) => {
         const filteredSepetItems = cardItems.filter((sepetItem) => {
-          return sepetItem.id !== itemId;
+          return sepetItem._id !== itemId;
         });
     
         setCardItems(filteredSepetItems);
@@ -34,7 +34,10 @@ function CardProvider({children}) {
     value={{
         cardItems,
         addToCard,
-        removeProduct
+        removeProduct,
+        categoriControl,
+        setCategoriControl
+       
     }}
     >
         {children}

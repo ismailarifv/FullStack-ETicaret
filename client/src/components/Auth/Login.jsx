@@ -2,7 +2,9 @@ import { message } from "antd";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function Login() {
+
 
   const [formData, setFormData] = useState({
     email: "",
@@ -18,6 +20,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    
     try {
       const response = await fetch(`${apiUrl}/api/auth/login`, {
         method: "POST",
@@ -26,9 +29,10 @@ function Login() {
         },
         body: JSON.stringify(formData),
       });
-
+      
       if (response.ok) {
         const data = await response.json();
+        
         localStorage.setItem("user", JSON.stringify(data));
         message.success("Giriş başarılı.");
         if (data.role === "admin") {
@@ -52,7 +56,7 @@ function Login() {
           <span>
             Kullanıcı Adı veya mail adresi <span className="required">*</span>
           </span>
-          <input type="text"  name="email" onChange={handleInputChange}/>
+          <input type="text"  name="email" onChange={handleInputChange} required/>
         </label>
       </div>
       <div>
@@ -62,7 +66,7 @@ function Login() {
           </span>
           <input type="password"
               name="password"
-              onChange={handleInputChange} />
+              onChange={handleInputChange} required />
         </label>
       </div>
       <p className="remember">
