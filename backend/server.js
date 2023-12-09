@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express();
+const cors = require("cors");
 const mainRoute = require("./routes/index.js")
 const logger = require("morgan")
 const port =5000;
@@ -18,12 +19,12 @@ const connect =async () =>{
 //middlewares
 app.use(logger("dev"))
 app.use(express.json())
-
+app.use(cors());
 app.use("/api",mainRoute)
 
 app.listen(port,()=>{
     connect();
-    console.log(`asdf`);
+    console.log(`Sunucu ${port} portunda çalışıyor`);
 });
 
 

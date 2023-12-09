@@ -6,7 +6,7 @@ import Proptypes from "prop-types";
 function Header({ setIsSearchShow }) {
 
   const { cardItems } = useContext(CardContext);
-
+  const user = localStorage.getItem("user");
   const { pathname } = useLocation();
   return (
     <header>
@@ -193,6 +193,25 @@ function Header({ setIsSearchShow }) {
                     </span>
                   </Link>
                 </div>
+                {user && (
+                  <button
+                    className="search-button"
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          "Çıkış yapmak istediğinize emin misiniz?"
+                        )
+                      ) {
+                        {
+                          localStorage.removeItem("user");
+                          window.location.href = "/";
+                        }
+                      }
+                    }}
+                  >
+                    <i className="bi bi-box-arrow-right"></i>
+                  </button>
+                )}
               </div>
             </div>
           </div>
