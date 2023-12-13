@@ -48,6 +48,7 @@ function Login() {
     }
   };
   return (
+    
     <div className="account-column">
     <h2>Giriş</h2>
     <form onSubmit={handleLogin}>

@@ -20,3 +20,4 @@ export default CategoriItem
 CategoriItem.propTypes = {
   category: PropTypes.object,
 };
+

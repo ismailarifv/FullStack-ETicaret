@@ -88,7 +88,7 @@ function Search({ isSearchShow, setIsSearchShow }) {
             )}
             {searchResults?.length > 0 &&
               searchResults?.map((resultItem) => (
-                <Link href="#" className="result-item" key={resultItem._id}>
+                <Link onClick={()=>handleCloseModal()} to={"/product/"+ resultItem._id} className="result-item" key={resultItem._id}>
                   <img
                     src={resultItem.img[0]}
                     className="search-thumb"
@@ -98,7 +98,7 @@ function Search({ isSearchShow, setIsSearchShow }) {
                     <h4>{resultItem.name}</h4>
                     <span className="search-sku">SKU: PD0016</span>
                     <span className="search-price">
-                      ${resultItem.price.current.toFixed(2)}
+                      {resultItem.price.current.toFixed(2)}₺
                     </span>
                   </div>
                 </Link>
