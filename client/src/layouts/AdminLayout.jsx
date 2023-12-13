@@ -5,8 +5,6 @@ import {
   UserOutlined,
   LaptopOutlined,
   RollbackOutlined,
-  DashboardOutlined,
-  ShoppingCartOutlined,
   AppstoreOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
@@ -21,15 +19,7 @@ function AdminLayout({ children }) {
   const navigate = useNavigate();
   const userRole = getUserRole();
   const menuItems = [
-    {
-      key: "1",
-      icon: <DashboardOutlined />,
-      label: "Dashboard",
-      onClick: () => {
-        
-        navigate(`/admin`);
-      },
-    },
+    
     {
       key: "2",
       icon: <AppstoreOutlined />,
@@ -87,14 +77,7 @@ function AdminLayout({ children }) {
         navigate(`/admin/users`);
       },
     },
-    {
-      key: "12",
-      icon: <ShoppingCartOutlined />,
-      label: "Siparişler",
-      onClick: () => {
-        navigate(`/admin/orders`);
-      },
-    },
+    
     {
       key: "13",
       icon: <RollbackOutlined />,

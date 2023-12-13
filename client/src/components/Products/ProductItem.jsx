@@ -69,9 +69,7 @@ function ProductItem({ productItem }) {
         <Link to={`product/${productItem._id}`} className="product-link">
           <i className="bi bi-eye-fill"></i>
         </Link>
-        <a href="#">
-          <i className="bi bi-share-fill"></i>
-        </a>
+        
       </div>
     </div>
     </div>

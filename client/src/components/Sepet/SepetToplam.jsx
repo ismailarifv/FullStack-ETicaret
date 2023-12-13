@@ -48,9 +48,7 @@ function SepetToplam() {
                       onChange={() => setHizliKargoChecked(!hizliKargoChecked)}/>
                   </label>
                 </li>
-                <li>
-                  <a href="#">Adres Değiştir</a>
-                </li>
+              
               </ul>
             </td>
           </tr>
@@ -63,7 +61,7 @@ function SepetToplam() {
         </tbody>
       </table>
       <div className="checkout">
-        <button className="btn btn-lg">Satın Al</button>
+        <button className="btn btn-lg" onClick={()=> alert("Sitemiz şuan bakım altında olduğundan satın alma işlemi geçici süreyle gerçekleşememektedir.")}>Satın Al</button>
       </div>
     </div>
   )
