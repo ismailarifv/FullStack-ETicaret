@@ -20,6 +20,9 @@ function Info({ singleProduct }) {
     <h1 className="product-title">{singleProduct.name}</h1>
     <div className="product-review">
       <ul className="product-star">
+        {/* {singleProduct.reviews.forEach(element => {
+          element.rating
+        })} */}
         <li>
           <i className="bi bi-star-fill"></i>
         </li>
@@ -36,7 +39,7 @@ function Info({ singleProduct }) {
           <i className="bi bi-star-half"></i>
         </li>
       </ul>
-      <span>2 Yorum</span>
+      <span>{singleProduct.reviews.length} Yorum</span>
     </div>
     <div className="product-price">
       <s className="old-price">{originalPrice}₺</s>
